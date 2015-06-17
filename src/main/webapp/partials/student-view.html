@@ -1,0 +1,37 @@
+<table class="table studenttable">
+    <tr>
+        <td width="50%"><h3>Details of {{student.studentNumber}}</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Student Number</td>
+        <td>{{student.studentNumber}}</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td>{{student.firstName}}</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>{{student.lastName}}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{student.gender}}</td>
+    </tr>
+    <tr>
+        <td>Birth Date</td>
+        <td>{{student.birthDate}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{student.email}}</td>
+    </tr>
+    <tr>
+        <td>Disabled</td>
+        <td>{{student.disability}}</td>
+    </tr>
+</table>
+<div>
+    <a class="btn btn-primary" ui-sref="editStudent({id:student.id})">Edit</a>
+</div>
