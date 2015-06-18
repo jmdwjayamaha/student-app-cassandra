@@ -21,11 +21,14 @@ Steps to follow in setting integration test.
 
  1. Create a clone or download the zip file of the git repository.
 
- 2. Configure Cassandra instance details in "config.properties" file in the location "{Project_Directory}/src/main/resources".
-       
+ 2. Create the keyspace and the required table in cassandra using the following commands.
+ 
       Create a keyspace in cassandra using the following command.
         CREATE KEYSPACE student_info WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-      	
+      
+      Use the created keyspace.
+      	USE student_info;
+      
       Create a table in cassandra using the following command.
         CREATE TABLE student (
 	      id text PRIMARY KEY,
@@ -37,16 +40,18 @@ Steps to follow in setting integration test.
 	      last_name text,
 	      email text
         );
-       
+ 
+ 3. Configure Cassandra instance details in "config.properties" file in the location "{Project_Directory}/src/main/resources".
+
       i)   cassandra.contactpoints - node addresses of the Cassandra instance.
       ii)  cassandra.port          - Hosted port number (Default port number is: 9042).
       iii) cassandra.keyspace      - The name of the database to be used (Default value is set to 'student_info').
 	
- 3. Navigate to project directory containing the "pom.xml" file and run the following command.
+ 4. Navigate to project directory containing the "pom.xml" file and run the following command.
       $ mvn clean install
 
- 4. Deploy the file "studentApp.war" in the location "{Project_Directory}/target" to JBoss.
+ 5. Deploy the file "studentApp.war" in the location "{Project_Directory}/target" to JBoss.
 
- 5. Use the following URL format to access the deployed application.
+ 6. Use the following URL format to access the deployed application.
       http://{Host_Name}:{Port}/studentApp/
 	
